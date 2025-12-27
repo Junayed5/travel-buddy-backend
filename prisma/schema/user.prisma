@@ -1,0 +1,17 @@
+model User {
+    id       String     @id @default(uuid())
+    email    String     @unique
+    password String
+    role     Role       @default(USER)
+    status   UserStatus @default(ACTIVE)
+
+    fullName         String?
+    bio              String?
+    image            String?
+    travelInterests  String[]
+    visitedCountries String[]
+    currentLocation  String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
